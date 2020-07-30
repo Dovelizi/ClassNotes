@@ -1,0 +1,77 @@
+<view class="myPart">
+  <!-- 头像 -->
+  <view wx:if="{{isShow}}" class="userinfo-image">
+     <image src="{{avatarUrl}}"></image>
+  </view>
+  <view class="userinfo-image" wx:else >
+    <image style="background-image: url({{avatarUrl}})"></image>    
+  </view>
+  <!--用户授权按钮 授权后隐藏-->
+  <view class="loginBtn" wx:if="{{isShow}}">
+    <van-button plain type="primary" open-type="getUserInfo" bindgetuserinfo="login" color="#00D8A0">点击登录账户</van-button>
+  </view>
+  <!-- 昵称 -->
+  <view class="userinfo-nickname">
+    {{nickName}}
+  </view>
+</view>
+<!--  -->
+<view class="showNotesNumberBox">
+  <view class="totileNotes">
+    <text class="totileNotesNum">{{noteCount}}</text>
+    <text class="Dec">笔记数量</text>
+  </view>
+  <view class="publicNotes">
+    <text class="totileNotesNum">{{openCount}}</text>
+    <text class="Dec">公开笔记</text>
+  </view>
+  <view class="collectNotes">
+    <text class="totileNotesNum">{{loveCount}}</text>
+    <text class="Dec">收藏笔记</text>
+  </view>
+</view>
+
+<view class="NavigationBar">
+    <view class="content">
+      <!-- 我的笔记 -->
+      <van-cell  icon="{{iconOne}}" class='van-cell' title-class='' is-link title="我的收藏" link-type="navigateTo" size='large' center='{{true}}' url="myLoveNote/myLoveNote" />
+       
+      <!-- 完善信息 -->
+      <van-cell icon="{{iconTwo}}" class='van-cell' title-class='' is-link title="完善信息" link-type="navigateTo" size='large' center='{{true}}' url="myInfo/myInfo" />
+         
+      <!-- 打赏码 -->
+      <van-cell icon="{{iconThree}}" class='van-cell' title-class='' is-link title="打赏码" link-type="navigateTo" size='large' center='{{true}}' url="reward/reward" border="{{false}}"/>
+    </view>  
+</view>
+<view class="help">
+    <view class="Btn">
+        <button class="btnOne" open-type="contact" hover-class="none" style="width:94%"></button>
+        <button class="btnTwo" open-type="feedback" hover-class="none" style="width:94%"></button>
+    </view>
+    <view class="cellBox">
+      <!-- 客服 -->  
+      <van-cell icon="{{iconFour}}" custom-class="cellFour" class='van-cell' title-class='' is-link title="客服" link-type="navigateTo" size='large' center='{{true}}'/>
+       <!-- 问题反馈 -->
+      <van-cell border="false"  icon="{{iconFive}}" custom-class="cellFive"  class='van-cell' title-class='' is-link title="问题反馈" link-type="navigateTo" size='large' center='{{true}}' border="{{false}}"/>
+    </view>
+</view>
+
+ <!-- 第一次进来的引导层 show的属性值控制该遮罩层的显示与隐藏 -->
+<van-overlay show="{{ show }}" z-index="{{99}}"  bind:click="onClickShow">
+  	<view class="overOneBox" wx:if="{{showOneBox}}">
+				<image mode="aspectFit" class="p1" src="{{p1}}"></image>
+		</view>
+		<view class="overTwoBox" wx:if="{{showTwoBox}}">
+				<image mode="aspectFit" class="p2" src="{{p2}}"></image>
+		</view>
+  	<view class="overThreeBox" wx:if="{{showThreeBox}}">
+				<image mode="aspectFit" class="p3" src="{{p3}}"></image>
+		</view>
+    <view class="overFourBox" wx:if="{{showFourBox}}">
+				<image mode="aspectFit" class="p4" src="{{p4}}"></image>
+        <image mode="aspectFit" class="p5" src="{{p5}}"></image>
+		</view>
+</van-overlay>   
+
+
+

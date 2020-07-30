@@ -1,0 +1,56 @@
+<van-toast id="van-toast" />
+<!-- 违规内容的弹出提醒 -->
+<van-dialog id="van-dialog" />
+
+<form bindsubmit="previewNote">
+<view hidden="{{isFix}}" class="{{isFix ? 'fix-title':'title'}}" style="height:{{phoneHeight*2/9}}rpx">
+	<input type="text" bindinput="getNoteTitle" class="placeholder" name="noteTitle" value="{{titleInfo.noteTitle}}" placeholder='笔记标题' maxlength='{{30}}' placeholder-class='placeholder'></input>
+	<van-divider custom-style="width:50%"/>
+	<view class="inbox" >
+		<input type="text" bindinput="getPointA" name="pointA" value="{{titleInfo.pointA}}" class="input-bottom" maxlength='{{15}}' placeholder='知识点1'></input>		
+		<input type="text" bindinput="getPointB" name="pointB" value="{{titleInfo.pointB}}" class="input-bottom" maxlength='{{15}}' placeholder='知识点2'></input>		
+		<!-- <view> -->
+		<icon style="margin-top: 50rpx;" class="iconfont-pic icon-wenzishibie___" bindtap="picToText"></icon>
+	<!-- </view> -->
+	</view>
+	<icon class="iconfont-abc icon-bdcp:before"></icon>
+			
+</view>
+<view class="toolbar {{isFix ? 'fix-toolbar':''}}" catchtouchend="format"  >
+	<i class="iconfont icon-charutupian" catchtouchend="insertImage"></i>
+		<!-- <i class="iconfont icon-zuoduiqi {{hideBars.linebar?'':'ql-active'}}" data-name="linebar" bindtap='showbar'></i>
+      <view class='subbar linebar' hidden='{{hideBars.linebar}}' bindtap="format">
+        <i class="iconfont icon-zuoduiqi {{formats.align === 'left' ? 'ql-active' : ''}}" data-name="align" data-value="left"></i>
+        <i class="iconfont icon-juzhongduiqi {{formats.align === 'center' ? 'ql-active' : ''}}" data-name="align" data-value="center"></i>
+        <i class="iconfont icon-youduiqi {{formats.align === 'right' ? 'ql-active' : ''}}" data-name="align" data-value="right"></i>
+      </view> -->
+	<i class="iconfont icon-format-header-2 {{formats.header === 2 ? 'ql-active' : ''}}" data-name="header" data-value="{{2}}"></i>
+	<i class="iconfont icon-format-header-3 {{formats.header === 3 ? 'ql-active' : ''}}" data-name="header" data-value="{{3}}"></i>
+	<i class="iconfont icon-zitijiacu {{formats.bold ? 'ql-active' : ''}}" data-name="bold"></i>
+	<i class="iconfont icon-zitixieti {{formats.italic ? 'ql-active' : ''}}" data-name="italic"></i>
+	<i class="iconfont icon-zitixiahuaxian {{formats.underline ? 'ql-active' : ''}}" data-name="underline"></i>
+
+	<i class="iconfont icon-fengexian" bindtap="insertDivider"></i>
+
+	<!-- <i class="iconfont icon--checklist" data-name="list" data-value="check"></i> -->
+	<i class="iconfont icon-juzhongduiqi {{formats.align === 'center' ? 'ql-active' : ''}}" data-name="align" data-value="center"></i>
+	<i class="iconfont icon-youxupailie {{formats.list === 'ordered' ? 'ql-active' : ''}}" data-name="list" data-value="ordered"></i>
+	<i class="iconfont icon-wuxupailie {{formats.list === 'bullet' ? 'ql-active' : ''}}" data-name="list" data-value="bullet"></i>
+	<!-- <i class="iconfont icon-outdent" data-name="indent" data-value="-1"></i>
+  <i class="iconfont icon-indent" data-name="indent" data-value="+1"></i> -->
+</view>
+
+<view  class="container {{isFix ? 'abs-container':''}}" style="height:{{phoneHeight *48/50}}rpx" >
+	<editor id="editor" class="ql-container" placeholder="{{placeholder}}" bindinput="onContentChange" bindstatuschange="onStatusChange" bindready="onEditorReady" bindfocus="onEditorFocus" bindblur="onEditorBlur"  >
+	</editor>
+	<view class="editor-bottom" style="height:{{phoneHeight / 10}}rpx">		
+			<!-- 样式设置在app.wxss -->
+			<button wx:if="{{isEditor}}" form-type="submit" class="submitButton" hover-class="submitButtonHover" >保存修改</button>
+			<button wx:else form-type="submit" class="submitButton" hover-class="submitButtonHover">预览笔记</button>
+	</view>
+</view>
+
+
+<!-- hidden="{{keyboardHeight > 0 ? false : true}}" style="bottom: {{isIOS ? keyboardHeight : 0}}px"    style="height:{{editorHeight}}px;"" -->
+
+</form>

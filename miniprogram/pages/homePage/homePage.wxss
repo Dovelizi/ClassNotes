@@ -1,0 +1,102 @@
+@import "../template/showCard.wxss";
+
+/* 对于笔记的操作的具体样式 */
+ .option{
+  width: 80rpx;
+  height: 80rpx;
+  position: absolute;
+  bottom: 19rpx;
+  left: 535rpx;
+  /* z-index: 2; */
+}
+
+/* 弹出操作的图标的样式 */
+.optionItem{
+  width: 85rpx;
+  height: 85rpx;
+  position: absolute;
+  bottom: 8rpx;
+  left: 493rpx;  
+  opacity: 0;
+}
+.iconText{
+  position: absolute;
+  width: 60rpx;
+  height: 30rpx;
+  border: 1px solid red;
+}
+/* 取消收藏的样式 */
+.cancelCollet{
+  width: 90rpx;
+  height: 90rpx;
+  position: relative;
+  top: -16rpx;
+  left: 520rpx;
+}
+/* 取消收藏的图标的样式 */
+.cancelColletIcon{
+  width: 100%;
+  height: 100%;
+}
+/* 创建笔记的模块的样式 */
+.createNote{
+  width: 120rpx;
+  height: 120rpx;
+  position: fixed;
+  z-index: 99;
+  right: 50rpx;
+  bottom: 50rpx;
+}
+/* 创建笔记的图标的样式 */
+.createNoteIcon{
+  width: 120rpx;
+  height: 120rpx;
+}
+
+/* 顶部Tabs访问当前title的样式 设置 */
+.index-tabs .van-tab--active .van-ellipsis {
+  color: #87CEEB;
+  font-size: 1.3rem;
+}
+
+.noteNull{
+  
+  height: 200rpx;  
+  text-align: center; 
+  margin-top: 200rpx;
+  margin-bottom: auto;
+}
+.noteNullTitle{  
+  font-size: larger;
+  font-weight: 800;
+  color: rgba(55, 84, 95, 0.39);
+}
+
+
+/* 遮罩层的样式 */
+.overOneBox{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.first_over_1{
+  width: 100%;
+  height: 720rpx;
+  position: absolute;
+  top: 45rpx;
+  left: 58rpx;
+}
+.first_over_2{
+  width: 100%;
+  height: 240rpx;
+  position: absolute;
+  left: 58rpx;
+  bottom: 255rpx;  
+}
+
+.overTwoBox{
+  width: 100%;
+  position: absolute;
+  bottom: -35rpx;
+  left: 45rpx;
+}

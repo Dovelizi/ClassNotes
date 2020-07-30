@@ -1,0 +1,6 @@
+@import "../../components/wxSearch/wxSearch.wxss";
+@import "../template/showCard.wxss";
+
+.showBox {
+  margin-left: -15rpx;
+}

@@ -1,0 +1,52 @@
+<template name="commonInfo">
+	<view class="title">
+		<text class="titleInfo">{{titleInfo.noteTitle}}</text>
+		
+		<view class="informationBar" wx:if="{{way == 1}}">
+			<view class="barBox">
+				<view class="nickBox">
+					<text class="Name">{{nickName}}</text>
+					<!-- <text class="Name">栗子不是栗子鸭</text> -->
+				</view>
+				<view class="skimBox">
+					<view class="skimNum">
+						<icon class="iconfont icon-yanjing count"> {{clickCount}} </icon>
+						<icon class="iconfont icon-shoucang2 count"> {{loveCount}}</icon>
+					</view>
+				</view>
+					<!--展开和收起动画  -->
+				<!-- <view class="optBox" bindtap="openOpt">
+					<text class="optionText">{{optText}}</text>
+				</view> -->
+			</view>
+		</view>
+		<view class="informationBar" wx:if="{{way == 2}}">
+				<view class="knowledge" wx:if="{{titleInfo.pointA!='' || titleInfo.pointB!=''}}">
+					<text class="textDetail">知 识 点:</text>
+					<text hidden="{{titleInfo.pointA==''}}"  class="titlePoint" >#{{titleInfo.pointA}}</text>
+					<text hidden="{{titleInfo.pointB==''}}" class="titlePoint" >#{{titleInfo.pointB}}</text>
+				</view>
+		</view>
+		<view>
+		<!-- 滑动展示学科信息和知识点 -->
+			<!-- <view  class="knowledgeBox" class="{{first_click?'show':'hide'}} {{state?'open':'close'}}"> -->
+			<view  class="knowledgeBox" wx:if="{{way == 1}}">
+				<view class="subjectBox">
+					<text class="textDetail">学科分类:</text>
+					<text class="subject">{{noteCategory}}</text>
+				</view>
+				<view class="knowledge">
+					<text class="textDetail">知 识 点:</text>
+					<text hidden="{{titleInfo.pointA==''}}"  class="titlePoint" >#{{titleInfo.pointA}}</text>
+					<text hidden="{{titleInfo.pointB==''}}" class="titlePoint" >#{{titleInfo.pointB}}</text>
+				</view>
+			</view>
+			<!-- <van-divider wx:if="{{titleInfo.pointA!='' && titleInfo.pointB!=''}}" custom-style="width:80%" /> -->
+		</view>
+	</view>
+
+	<rich-text nodes="{{html}}" space="nbsp" class="noteContent"></rich-text>  
+	<!-- <editor id="editor" class="ql-container"  read-only="{{true}}" bindready="onEditorReady" > -->
+  <!-- </editor> -->
+	<van-divider contentPosition="center" custom-style="width:100%">{{currTime}}</van-divider>
+</template>
